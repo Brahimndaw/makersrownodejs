@@ -1,12 +1,8 @@
 var express = require('express');
-var brandStore = require('json-fs-store')('store/companies');
+var brandStore = require('json-fs-store')('store/companies/brands');
 var router = express.Router();
 
 /* GET a list of brands */
-router.param('company_type', function(req,res,next,brands){
-    var modified = brands
-    req.brands = modified;
-})
 
 
 router.get('/', function(req, res, next) {

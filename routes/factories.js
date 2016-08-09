@@ -1,11 +1,12 @@
 var express = require('express');
-var factoryStore = require('json-fs-store')('store/companies');
+var factoryStore = require('json-fs-store')('store/companies/factories');
 var router = express.Router();
 
 /* GET a list of factories */
 router.get('/', function(req, res, next) {
     factoryStore.list(function(err, factories) {
         if (err) throw err;
+        
         res.json(factories);
     });
 });
