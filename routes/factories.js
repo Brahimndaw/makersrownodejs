@@ -6,7 +6,6 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     factoryStore.list(function(err, factories) {
         if (err) throw err;
-
         res.json(factories);
     });
 });
@@ -21,7 +20,11 @@ router.post('/', function(req, res, next) {
     if (!req.body) return res.sendStatus(400);
 
     var newFactory = {
-        name: req.body.name
+        name: req.body.name,
+        email: req.body.email,
+        phone_number: req.body.phone_number,
+        City: req.body.City,
+        State: req.body.State
     };
     factoryStore.add(newFactory, function(err) {
         if (err) throw err;
@@ -29,5 +32,12 @@ router.post('/', function(req, res, next) {
         res.json(newFactory);
     });
 });
+
+router.delete('/:id', function(req, res, next) {
+    factoryStore.remove(req.params.id, function(err, brand) {
+        if (err) throw err;
+    });
+});
+
 
 module.exports = router;
