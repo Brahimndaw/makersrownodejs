@@ -1,5 +1,7 @@
 var express = require('express');
 var path = require('path');
+var helpers = require('view-helpers')
+
 
 var logger = require('morgan');
 var bodyParser = require('body-parser');
@@ -17,9 +19,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/factories', factoryRoutes);
 app.use('/brands', brandRoutes);
+app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.send('Status 200');
+    res.render('index');
 });
 
 // catch 404 and forward to error handler
