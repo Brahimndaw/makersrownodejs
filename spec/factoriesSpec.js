@@ -22,7 +22,7 @@ describe('Factories', function () {
     });
     it('gets a single factory', function (done) {
         request(app)
-            .get('/factories/0a75d3f4-c8ff-47bb-84c3-a874007d1b4f')
+            .get('/factories/2c2f5287-3d7a-4ebd-aae9-be7a453d0578')
             .expect(200)
             .end(function(err, res) {
                 if (err) return done.fail(res);
@@ -50,4 +50,21 @@ describe('Factories', function () {
     //             done(res);
     //         });
     // })
+
+
+        it('deletes the factories', function (done) {
+            request(app)
+                .delete('/factories')
+                .end(function (err, res) {
+                    if (err) return done.fail(res);
+                    expect(res.body.company_type).toEqual();
+                    expect(res.body.name).toEqual();
+                    expect(res.body.email).toEqual()
+                    expect(res.body.phone_number).toEqual()
+                    expect(res.body.City).toEqual()
+                    expect(res.body.State).toEqual()
+                    done(res);
+                });
+        })
+
 });

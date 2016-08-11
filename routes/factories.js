@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
     factoryStore.list(function(err, factories) {
         if (err) throw err;
-        
+
         res.json(factories);
     });
 });
@@ -21,6 +21,7 @@ router.post('/', function(req, res, next) {
     if (!req.body) return res.sendStatus(400);
 
     var newFactory = {
+        company_type: req.body.company_type,
         name: req.body.name,
         email: req.body.email,
         phone_number: req.body.phone_number,
@@ -39,6 +40,5 @@ router.delete('/:id', function(req, res, next) {
         if (err) throw err;
     });
 });
-
 
 module.exports = router;

@@ -23,6 +23,7 @@ router.post('/', function(req, res, next) {
     if (!req.body) return res.sendStatus(400);
 
     var newBrand = {
+      company_type: req.body.company_type,
       name: req.body.name,
       email: req.body.email,
       phone_number: req.body.phone_number,

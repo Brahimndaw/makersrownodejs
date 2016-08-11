@@ -52,14 +52,15 @@ describe('Brands', function () {
 
     it('deletes a Brand', function (done) {
         request(app)
-            .get('/brand/id')
+            .delete('/brand/id')
             .end(function (err, res) {
                 if (err) return done.fail(res);
-                expect(res.body.name).toEqual('Bamako');
-                expect(res.body.email).toEqual('bamako@makersrow.com')
-                expect(res.body.phone_number).toEqual('456-909-9309')
-                expect(res.body.City).toEqual('San Jose')
-                expect(res.body.State).toEqual('CA')
+                expect(res.body.company_type).toEqual();
+                expect(res.body.name).toEqual();
+                expect(res.body.email).toEqual()
+                expect(res.body.phone_number).toEqual()
+                expect(res.body.City).toEqual()
+                expect(res.body.State).toEqual()
                 done(res);
             });
     })
