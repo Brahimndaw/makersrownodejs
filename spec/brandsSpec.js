@@ -30,25 +30,25 @@ describe('Brands', function () {
                 done(res);
             });
     });
-    // it('creates a new Brand', function (done) {
-    //     request(app)
-    //         .post('/brands')
-    //         .send({ name: 'Abidjan',
-    //                 email: 'Babi@gmail.com',
-    //                 phone_number: '225-909-9309',
-    //                 City: 'Abidjan',
-    //                 State: 'Cote-Ivoire'
-    //       })
-    //         .end(function (err, res) {
-    //             if (err) return done.fail(res);
-    //             expect(res.body.name).toEqual('Abidjan');
-    //             expect(res.body.email).toEqual('Babi@gmail.com')
-    //             expect(res.body.phone_number).toEqual('225-909-9309')
-    //             expect(res.body.City).toEqual('Abidjan')
-    //             expect(res.body.State).toEqual('Cote-Ivoire')
-    //             done(res);
-    //         });
-    // })
+    it('creates a new Brand', function (done) {
+        request(app)
+            .post('/brands')
+            .send({ name: 'Abidjan',
+                    email: 'Babi@gmail.com',
+                    phone_number: '225-909-9309',
+                    City: 'Abidjan',
+                    State: 'Cote-Ivoire'
+          })
+            .end(function (err, res) {
+                if (err) return done.fail(res);
+                expect(res.body.name).toEqual('Abidjan');
+                expect(res.body.email).toEqual('Babi@gmail.com')
+                expect(res.body.phone_number).toEqual('225-909-9309')
+                expect(res.body.City).toEqual('Abidjan')
+                expect(res.body.State).toEqual('Cote-Ivoire')
+                done(res);
+            });
+    })
 
     it('deletes a Brand', function (done) {
         request(app)

@@ -30,26 +30,26 @@ describe('Factories', function () {
                 done(res);
             });
     });
-    // it('creates a new factory', function (done) {
-    //     request(app)
-    //         .post('/factories')
-    //         .send({ name: 'Test Factory',
-    //               email: 'moonshine@gmail.com',
-    //               phone_number: '301-909-9309',
-    //               City: 'Arlington',
-    //               State: 'VA'
-    //       })
-    //         .end(function (err, res) {
-    //             if (err) return done.fail(res);
-    //             expect(res.body.name).toEqual('Test Factory');
-    //             expect(res.body.email).toEqual('moonshine@gmail.com')
-    //             expect(res.body.phone_number).toEqual('301-909-9309')
-    //             expect(res.body.City).toEqual('Arlington')
-    //             expect(res.body.State).toEqual('VA')
-    //
-    //             done(res);
-    //         });
-    // })
+    it('creates a new factory', function (done) {
+        request(app)
+            .post('/factories')
+            .send({ name: 'Test Factory',
+                  email: 'moonshine@gmail.com',
+                  phone_number: '301-909-9309',
+                  City: 'Arlington',
+                  State: 'VA'
+          })
+            .end(function (err, res) {
+                if (err) return done.fail(res);
+                expect(res.body.name).toEqual('Test Factory');
+                expect(res.body.email).toEqual('moonshine@gmail.com')
+                expect(res.body.phone_number).toEqual('301-909-9309')
+                expect(res.body.City).toEqual('Arlington')
+                expect(res.body.State).toEqual('VA')
+
+                done(res);
+            });
+    })
 
 
         it('deletes the factories', function (done) {
